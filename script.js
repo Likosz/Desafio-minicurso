@@ -9,17 +9,20 @@ const gerarValorAleatorio = () => {
 };
 
 const pegarPersonagem = () => {
-    let numeroAleatorio = gerarValorAleatorio();
-    fetch("https://rickandmortyapi.com/api/character/", {
+let numeroAleatorio = gerarValorAleatorio();
+fetch("https://rickandmortyapi.com/api/character/", {
         method: "GET",
     })
         .then((response) => response.json())
         .then((json) => {
             const container = document.querySelector(".container");
             json.results.map(function (results) {
+
                 container.innerHTML += `
-             <div><img src=${results.image} > </div>
+             <div> <img src=${results.image} > </div>
+
              <ul id="detalhes-container">
+
                     <li>
                         Nome:
                         <p id="nome">${results.name}</p>
@@ -27,6 +30,7 @@ const pegarPersonagem = () => {
                     <li>
                         Especie:
                         <p id="especie">${results.species}</p>
+
                     </li>
                     <li>
                         Está Vivo?
